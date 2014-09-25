@@ -62,7 +62,7 @@ angular.module("DialogMapApp").controller "SidebarController", [
           $scope.categorySelectOpts =
             data: response.data || []
             multiple: false
-            createSearchChoice: $scope.createCategorySearchChoice
+            # createSearchChoice: $scope.createCategorySearchChoice
             formatResult: $scope.formatCategory
             formatSelection: $scope.formatCategory
             placeholder: 'Akteur'
@@ -73,7 +73,7 @@ angular.module("DialogMapApp").controller "SidebarController", [
           $scope.activitySelectOpts =
             data: response.data || []
             multiple: false
-            createSearchChoice: $scope.createActivitySearchChoice
+            # createSearchChoice: $scope.createActivitySearchChoice
             formatResult: $scope.formatActivity
             formatSelection: $scope.formatActivity
             placeholder: 'Funktion'
