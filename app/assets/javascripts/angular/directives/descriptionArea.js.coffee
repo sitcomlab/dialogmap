@@ -401,17 +401,17 @@ angular.module("DialogMapApp")
         elemY = y - parentOffset.top + lineHeight
         [elemX, elemY]
 
-      angular.element('#contribution_description_text').on 'mouseup', (e) ->
-        if angular.element(".url-input").is(":visible") # url input is visible..
-          # user has clicked somewhere else.. leave url input mode
-          leaveUrlInputMode()
-        scope.selection = getSelection()
-        if scope.selection.trim() != ""
-          clickPos = getSelectionCoords()
-          showButtons(clickPos[0], clickPos[1])
-        else
-          hideButtons()
-        return
+      # angular.element('#contribution_description_text').on 'mouseup', (e) ->
+      #   if angular.element(".url-input").is(":visible") # url input is visible..
+      #     # user has clicked somewhere else.. leave url input mode
+      #     leaveUrlInputMode()
+      #   scope.selection = getSelection()
+      #   if scope.selection.trim() != ""
+      #     clickPos = getSelectionCoords()
+      #     showButtons(clickPos[0], clickPos[1])
+      #   else
+      #     hideButtons()
+      #   return
 
       scope.$watch 'internal.description', (value) ->
         Contribution.description = angular.element('#contribution_description_text').html()
