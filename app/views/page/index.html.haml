@@ -3,7 +3,7 @@
   #map{ ng_controller: "MapController" }
     %leaflet{ id: "map_main", controls: "controls", geojson: "geojson", :"event-broadcast" => "events", :tiles => "tiles", defaults: "defaults" }
   #ui_container{ ng_controller: "SidebarController" }
-    #back_flag.pointer{ title: "zurück", ng_class: "{visible_back_flag: $state.is('contribution') || loading === false}", ui_sref: "contributions" }
+    #back_flag.pointer{ title: "zurück", ng_class: "{visible_back_flag: $state.is('contribution') || loading === false}", ui_sref: "contributions", ng_click: "track('sidebar:clickBack')" }
       = fa_icon "angle-left", class: "icon"
       %span.text zurück
     = fa_icon "info", id: 'app_info_button', ng_dialog: "app_info_modal.html", ng_dialog_class: "ngdialog-theme-default", ng_dialog_close_previous: true
@@ -13,15 +13,15 @@
         Nachhaltigkeitskarte
       .sidebar-top
         #help
-          %a{ ng_click: "showHelpModal(2)" }
+          %a{ ng_click: "showHelpModal(2);track('sidebar:clickHelp')" }
             %i.fa.fa-question
             Hilfe
           &nbsp;
-          %a{ ng_click: "showHelpModal(3)" }
+          %a{ ng_click: "showHelpModal(3);track('sidebar:clickLegend')" }
             %i.fa.fa-flag
             Zeichenerklärung
         #user
-          %a{ ng_click: "User.showUserModal()" }
+          %a{ href: "", ng_click: "User.showUserModal();track('sidebar:clickUserLink')" }
             %i.fa.fa-user
             {{ User.user.email || "Einloggen/Registrieren" }}
 
