@@ -30,11 +30,11 @@ angular.module("DialogMapApp").controller "SidebarController", [
           when 'ctEnding'
             return if child.endDate? and moment(child.startDate).isAfter(moment()) then moment(child.endDate).format('X') - moment().format('X') else Number.POSITIVE_INFINITY
       createCategorySearchChoice: (term) ->
-        {id: term, text: "Neuer Akteur: #{term}"}
+        {id: term, text: "Neuer Bereich: #{term}"}
       createActivitySearchChoice: (term) ->
-        {id: term, text: "Neue Funktion: #{term}"}
-      createContentSearchChoice: (term) ->
         {id: term, text: "Neuer Inhalt: #{term}"}
+      createContentSearchChoice: (term) ->
+        {id: term, text: "Neue Aktivität: #{term}"}
       formatCategory: (state) ->
         state.color = $scope.stringToHexColor(state.id) unless state.color?
         "<div class='category-color' style='background-color: #{state.color};'></div>&nbsp;#{state.text}"
@@ -65,7 +65,7 @@ angular.module("DialogMapApp").controller "SidebarController", [
             createSearchChoice: $scope.createCategorySearchChoice
             formatResult: $scope.formatCategory
             formatSelection: $scope.formatCategory
-            placeholder: 'Akteur'
+            placeholder: 'Bereich'
           angular.element('input#category.category_input').attr("ui-select2", "categorySelectOpts")
           $compile(angular.element('input#category.category_input'))($scope)
           return
@@ -76,7 +76,7 @@ angular.module("DialogMapApp").controller "SidebarController", [
             createSearchChoice: $scope.createActivitySearchChoice
             formatResult: $scope.formatActivity
             formatSelection: $scope.formatActivity
-            placeholder: 'Funktion'
+            placeholder: 'Inhalt'
           angular.element('input#activity.category_input').attr("ui-select2", "activitySelectOpts")
           $compile(angular.element('input#activity.category_input'))($scope)
           return
@@ -85,7 +85,7 @@ angular.module("DialogMapApp").controller "SidebarController", [
             data: response.data || []
             multiple: true
             createSearchChoice: $scope.createContentSearchChoice
-            placeholder: 'Inhalte'
+            placeholder: 'Aktivitäten'
           angular.element('div#content.category_input').attr("ui-select2", "contentSelectOpts")
           $compile(angular.element('div#content.category_input'))($scope)
           return

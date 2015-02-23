@@ -10,14 +10,18 @@
 
     #sidebar{ loading: true }
       #title_box
-        Nachhaltigkeitslandkarte Münster
+        Nachhaltigkeitskarte
       .sidebar-top
         #help
           %a{ ng_click: "showHelpModal(1)" }
             %i.fa.fa-question
             Hilfe
+          &nbsp;
+          %a{ ng_click: "showHelpModal(2)" }
+            %i.fa.fa-flag
+            Zeichenerklärung
         #user
-          %a{ href: "", ng_click: "User.showUserModal()" }
+          %a{ ng_click: "User.showUserModal()" }
             %i.fa.fa-user
             {{ User.user.email || "Einloggen/Registrieren" }}
 
@@ -34,13 +38,11 @@
           %option{ value: "ctReplys" } meiste Antworten
           %option{ value: "ctNewer"} neueste zuerst
           %option{ value: "ctFav" } meist favorisiert
-          %option{ value: "ctCategory" } Akteur
-          %option{ value: "ctActivity" } Aktivität
+          %option{ value: "ctCategory" } Bereich
+          %option{ value: "ctActivity" } Inhalt
           %option{ value: "ctStarting" } beginnt bald
           %option{ value: "ctEnding" } endet bald
       %perfect-scrollbar#contributions-scroller{ refresh_on_change: "Contribution.display_contributions",
         ng_hide: "Contribution.composing && $state.is('contributions')",
         ng_class: "{'scroller-tall': $state.is('contribution')}" }
         .view{ ui_view: true }
-      #legend-toggler
-        %a.fa.fa-angle-double-right{ ng_click: "showHelpModal(2)" } Zeichenerklärung
