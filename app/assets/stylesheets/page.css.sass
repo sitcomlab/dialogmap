@@ -559,21 +559,8 @@ a
     width: 155px
 
 #title_box
-  position: absolute
   +user-select(none)
   cursor: default
-  width: calc(100% - #{$sidebar-width} - 38px)
-  left: 38px
+  font-size: 26px
+  font-weight: 700
   text-align: center
-  .title
-    +background(linear-gradient(to bottom, $sidebar-background, rgba(lighten($sidebar-background, 10), 0.4)))
-    font-size: 34px
-    @media screen and (max-width: 1100px)
-      font-size: 20px
-    @media screen and (max-width: 815px)
-      display: none
-    position: relative
-    +border-radius(0px 0px 5px 5px)
-    padding: 10px
-    font-weight: 700
-    top: 10px
