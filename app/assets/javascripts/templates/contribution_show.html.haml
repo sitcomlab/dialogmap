@@ -9,16 +9,16 @@
     .contribution-category-container
       .category-columns
         %div.category-column
-          %span{ title: "Akteur: {{Contribution.currentContribution.category.id}}" }
-            %span.category-title Akteur:
+          %span{ title: "Bereich: {{Contribution.currentContribution.category.id}}" }
+            %span.category-title Bereich:
             .category-color{ ng_style: "{'background-color': Contribution.currentContribution.category.color}"}
             %span.category-value {{Contribution.currentContribution.category.id }}
         %div.category-column
           %span{ title: "Aktivität: {{Contribution.currentContribution.activity.id}}"}
-            %span.category-title Aktivität:
+            %span.category-title Inhalt:
             .maki-icon{ class: "{{Contribution.currentContribution.activity.icon}}" }
             %span.category-value {{ Contribution.currentContribution.activity.id }}
-        %span.category-title.content-title Inhalte:
+        %span.category-title.content-title Aktivitäten:
         %span{ ng_repeat: "c in Contribution.currentContribution.content" }
           %span.category-value {{ c.id }}{{ !$last == true ? ', ' : ''}}
       .time-limit{ ng_show: "Contribution.currentContribution.startDate && Contribution.currentContribution.endDate" }
