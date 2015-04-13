@@ -31,7 +31,7 @@ angular.module('DialogMapApp').factory "Analytics", [
       @return {boolean}
       ###
       trackEvent: (action, data) ->
-        if action.length
+        if $window.scientifictracking && action.length
           return leafletData.getMap('map_main').then (map) ->
             if !data?
               data = {}
