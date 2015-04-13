@@ -30,3 +30,4 @@ app:
     - SMTP_PASSWORD=SOMEPASS
     - EMAIL_FROM=some-email@provider.com
     - SENTRY_DSN=http://localhost
+    - TRACKING_ACTIVE=false
