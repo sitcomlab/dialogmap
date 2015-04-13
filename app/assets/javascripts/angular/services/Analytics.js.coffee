@@ -17,7 +17,38 @@ angular.module('DialogMapApp').factory "Analytics", [
     EVENT_COLLECTION = 'tracking'
     WRITE_KEY = '31adb1ece004f241d3420bf26ae3e344f9813ade5f4544035a6eed1689bb72a67ae75ba01ebe4c6b044cb0f69c60f8731a3c7f575a1c742cb9baae9f77cee1b171bd8fe938496906f99de0faa3e2dd452631e6632d36943882f347027cc460789a206fba330294a9b91db7ebc4798621'
     url = "https://api.keen.io/3.0/projects/#{PROJECT_ID}/events/#{EVENT_COLLECTION}?api_key=#{WRITE_KEY}"
-    return (
+
+    # init page visibility stuff
+    hidden = undefined
+    visibilityChange = undefined
+    if typeof document.hidden != 'undefined'
+      hidden = 'hidden'
+      visibilityChange = 'visibilitychange'
+    else if typeof document.mozHidden != 'undefined'
+      hidden = 'mozHidden'
+      visibilityChange = 'mozvisibilitychange'
+    else if typeof document.msHidden != 'undefined'
+      hidden = 'msHidden'
+      visibilityChange = 'msvisibilitychange'
+    else if typeof document.webkitHidden != 'undefined'
+      hidden = 'webkitHidden'
+      visibilityChange = 'webkitvisibilitychange'
+
+    handleVisibilityChange = ->
+      if document[hidden]
+        tracking.trackEvent 'pageVisibilityChange', { pageVisibility: 'hidden' }
+      else
+        tracking.trackEvent 'pageVisibilityChange', { pageVisibility: 'visible' }
+      return
+
+    if typeof document.addEventListener != 'undefined' or typeof document[hidden] != 'undefined'
+      document.addEventListener visibilityChange, handleVisibilityChange, false
+      $window.addEventListener 'unload', (->
+        tracking.trackEvent 'pageUnload'
+        return
+      ), false
+
+    tracking = (
 
       ###*
       Tracks a custom event.
@@ -50,4 +81,5 @@ angular.module('DialogMapApp').factory "Analytics", [
             true
         false
     )
+    return tracking
 ]

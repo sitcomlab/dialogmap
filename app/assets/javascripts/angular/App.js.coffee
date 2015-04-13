@@ -78,10 +78,36 @@ angular.module "DialogMapApp", [
   '$state'
   '$stateParams'
   'amMoment'
-  ($rootScope, $state, $stateParams, amMoment) ->
+  '$window'
+  ($rootScope, $state, $stateParams, amMoment, $window) ->
     # It's very handy to add references to $state and $stateParams to the $rootScope
     # so that you can access them from any scope within your applications
     $rootScope.$state = $state
     $rootScope.$stateParams = $stateParams
     amMoment.changeLocale('de')
+
+    $rootScope.browserFingerprintForGa = new Fingerprint({screen_resolution: true, canvas: true}).get()
+    if $window.scientifictracking
+      ((i, s, o, g, r, a, m) ->
+        i["GoogleAnalyticsObject"] = r
+        i[r] = i[r] or ->
+          (i[r].q = i[r].q or []).push arguments
+          return
+
+        i[r].l = 1 * new Date()
+
+        a = s.createElement(o)
+        m = s.getElementsByTagName(o)[0]
+
+        a.async = 1
+        a.src = g
+        m.parentNode.insertBefore a, m
+        return
+      ) window, document, "script", "//www.google-analytics.com/analytics.js", "ga"
+      ga "create", "UA-49033468-5",
+        cookieDomain: "none"
+
+      ga "require", "linkid", "linkid.js"
+      ga "require", "displayfeatures"
+      ga "set", "&uid", $rootScope.browserFingerprintForGa
   ]

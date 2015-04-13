@@ -4,7 +4,8 @@ angular.module("DialogMapApp").controller "MapController", [
   "Contribution"
   "$rootScope"
   "$timeout"
-  ($scope, leafletData, Contribution, $rootScope, $timeout) ->
+  "Analytics"
+  ($scope, leafletData, Contribution, $rootScope, $timeout, Analytics) ->
     # use of L.activearea plugin in order to set the vieport to the visible area
     leafletData.getMap('map_main').then (map) ->
       map.setActiveArea
