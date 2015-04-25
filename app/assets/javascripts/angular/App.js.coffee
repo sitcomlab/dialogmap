@@ -47,7 +47,8 @@ angular.module "DialogMapApp", [
             "Contribution"
             "leafletData"
             "$rootScope"
-            (Contribution, leafletData, $rootScope) ->
+            "Analytics"
+            (Contribution, leafletData, $rootScope, Analytics) ->
               Contribution.abort()
               Contribution.currentContribution = undefined
               Contribution.getContribution()
@@ -65,7 +66,8 @@ angular.module "DialogMapApp", [
             "Contribution"
             "$stateParams"
             "$rootScope"
-            (Contribution, $stateParams, $rootScope) ->
+            "Analytics"
+            (Contribution, $stateParams, $rootScope, Analytics) ->
               Contribution.fetchAndSetCurrentContribution($stateParams.id)
               $rootScope.$broadcast 'resetHighlight'
               angular.element('#contributions-scroller').scrollTop(0)
