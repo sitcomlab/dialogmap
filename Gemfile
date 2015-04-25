@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
-ruby '2.2.0'
+ruby '2.2.2'
 gem 'bundler', '>= 1.7.0'
 # Backend
 
-gem 'rails', '4.1.9'
+gem 'rails', '4.1.10'
 
 gem 'rails-i18n'
 
