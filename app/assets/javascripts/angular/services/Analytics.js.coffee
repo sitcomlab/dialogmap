@@ -13,9 +13,9 @@ angular.module('DialogMapApp').factory "Analytics", [
   "$http"
   "User"
   ($window, leafletData, $rootScope, $http, User) ->
-    PROJECT_ID = '54b6884e96773d36ffcb1d4a'
+    PROJECT_ID = '554ca9ae59949a0dab9f8ac9'
     EVENT_COLLECTION = 'tracking'
-    WRITE_KEY = '31adb1ece004f241d3420bf26ae3e344f9813ade5f4544035a6eed1689bb72a67ae75ba01ebe4c6b044cb0f69c60f8731a3c7f575a1c742cb9baae9f77cee1b171bd8fe938496906f99de0faa3e2dd452631e6632d36943882f347027cc460789a206fba330294a9b91db7ebc4798621'
+    WRITE_KEY = '0ca364f67bb792947fe09205250c735559c193ce0b5e7c2e6859e73cad6f81379ddf2b4eb3e44254f29ba0f72244a51979b3079d3870c151ed9d2d889605580803a100e07e78a9ea8618a4cb71d3b50879e1509d763f6b5d65d5fc663f2e3ee39fd601b9a2d97b76c3f8af3a52d5e312'
     url = "https://api.keen.io/3.0/projects/#{PROJECT_ID}/events/#{EVENT_COLLECTION}?api_key=#{WRITE_KEY}"
 
     # init page visibility stuff
