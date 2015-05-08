@@ -66,7 +66,6 @@ angular.module("DialogMapApp").controller "SidebarController", [
           $scope.categorySelectOpts =
             data: response.data || []
             multiple: false
-            createSearchChoice: $scope.createCategorySearchChoice
             formatResult: $scope.formatCategory
             formatSelection: $scope.formatCategory
             placeholder: 'Bereich'
@@ -77,7 +76,6 @@ angular.module("DialogMapApp").controller "SidebarController", [
           $scope.activitySelectOpts =
             data: response.data || []
             multiple: false
-            createSearchChoice: $scope.createActivitySearchChoice
             formatResult: $scope.formatActivity
             formatSelection: $scope.formatActivity
             placeholder: 'Inhalt'
@@ -88,7 +86,6 @@ angular.module("DialogMapApp").controller "SidebarController", [
           $scope.contentSelectOpts =
             data: response.data || []
             multiple: true
-            createSearchChoice: $scope.createContentSearchChoice
             placeholder: 'Aktivitäten'
           angular.element('div#content.category_input').attr("ui-select2", "contentSelectOpts")
           $compile(angular.element('div#content.category_input'))($scope)
