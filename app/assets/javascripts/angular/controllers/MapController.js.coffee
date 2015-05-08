@@ -69,7 +69,7 @@ angular.module("DialogMapApp").controller "MapController", [
           enable: ['moveend','draw:created','click','popupopen']
           logic: 'emit'
       tiles:
-        url: 'http://tile.openstreetmap.org/{z}/{x}/{y}.png'
+        url: 'https://a.tiles.mapbox.com/v4/s3n3ca.m4fa0koj/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiczNuM2NhIiwiYSI6IlhMRi14MWsifQ.T0-MF6aCC3oW_f0W2KEH6g'
       # contains all geofeatures
       geojson:
         data: { "type": "FeatureCollection", "features": [] }
