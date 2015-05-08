@@ -106,7 +106,7 @@ angular.module "DialogMapApp", [
         m.parentNode.insertBefore a, m
         return
       ) window, document, "script", "//www.google-analytics.com/analytics.js", "ga"
-      ga "create", "UA-49033468-5",
+      ga "create", "UA-28918261-2",
         cookieDomain: "none"
 
       ga "require", "linkid", "linkid.js"
